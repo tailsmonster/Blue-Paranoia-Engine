@@ -3,5 +3,6 @@ build/CMakeFiles/*
 build/blueparanoia
 build/cmake_install.cmake
 build/CMakeCache.txt
+build/Makefile
 
 .vscode
