@@ -1,1 +1,0 @@
-These header files were taken from an SDL3 code example downloaded from the official SDL website.
