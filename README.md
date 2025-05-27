@@ -5,3 +5,17 @@ A custom game engine written in C++ and SDL3, made for my fangame: Sonic 4 ReRun
 
 
 This is very early and experimental, so uh- come back when theres more lol.
+
+
+### BUILDING
+
+Dependancies:
+- CMake
+- SDL3
+
+Linux:
+```bash
+$ cd build
+$ cmake ..
+$ make
+```

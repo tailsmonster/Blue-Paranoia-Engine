@@ -1,0 +1,7 @@
+build/CMakeFiles
+build/CMakeFiles/*
+build/blueparanoia
+build/cmake_install.cmake
+build/CMakeCache.txt
+
+.vscode
