@@ -1,4 +1,4 @@
-# Blue Paranoia Game Engine
+# Blue Paranoia Game Engine || Sonic 4 ReRun
 _Beats Per Eternity_
 
 A custom game engine written in C++ and SDL3, made for my fangame: Sonic 4 ReRun (https://www.twitter.com/S4Rerun)
