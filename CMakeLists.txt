@@ -1,28 +1,31 @@
-cmake_minimum_required(VERSION 3.20)
-project(BlueParanoiaEngine)
+cmake_minimum_required(VERSION 3.22)
+project(BlueParanoia)
 
 set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-# Output binary to build/bin
+# Set build output path
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
-# Include directories
+# Find SDL3 installed on the system (from pacman or system path)
+find_package(SDL3 REQUIRED)
+
+# Include engine and include folders
 include_directories(
-    ${PROJECT_SOURCE_DIR}/libraries/SDL3
-    ${PROJECT_SOURCE_DIR}/engine
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/libraries
 )
 
-# Add subdirectory for engine code
+# Add engine subdirectory
 add_subdirectory(engine)
 
-# Main executable
-add_executable(blueparanoia main.cpp)
+# Build the main executable
+add_executable(blueparanoia
+    main.cpp
+)
 
-# Link engine static library
-target_link_libraries(blueparanoia PRIVATE blueparanoia_engine)
-
-# Link SDL3 (system-installed)
-find_package(PkgConfig REQUIRED)
-pkg_check_modules(SDL3 REQUIRED sdl3)
-target_include_directories(blueparanoia PRIVATE ${SDL3_INCLUDE_DIRS})
-target_link_libraries(blueparanoia PRIVATE ${SDL3_LIBRARIES})
+# Link to our engine static lib and SDL3
+target_link_libraries(blueparanoia
+    blueparanoia_engine
+    SDL3::SDL3
+)
