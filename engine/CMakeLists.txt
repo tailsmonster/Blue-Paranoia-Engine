@@ -1,6 +1,4 @@
-# engine/CMakeLists.txt
-
-# Gather all .cpp files from engine (recursively)
+# Gather all .cpp source files under engine/
 file(GLOB_RECURSE ENGINE_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp
 )
@@ -10,9 +8,7 @@ add_library(blueparanoia_engine STATIC
 )
 
 target_include_directories(blueparanoia_engine PUBLIC
-    ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}/../include
-    ${CMAKE_CURRENT_SOURCE_DIR}/../libraries
 )
 
 target_link_libraries(blueparanoia_engine
