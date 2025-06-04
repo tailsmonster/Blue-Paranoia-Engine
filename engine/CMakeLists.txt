@@ -1,16 +1,21 @@
-# Gather all .cpp source files under engine/
-file(GLOB_RECURSE ENGINE_SOURCES
-    ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp
+# engine/CMakeLists.txt
+
+# List all source files
+set(ENGINE_SOURCES
+    Core/App/GameLoop.cpp
+    Core/App/Init.cpp
+    Core/App/Iterate.cpp
+    Core/App/Event.cpp
+    Core/App/Quit.cpp
 )
 
-add_library(blueparanoia_engine STATIC
-    ${ENGINE_SOURCES}
-)
+# Create a static library target
+add_library(blueparanoia_engine STATIC ${ENGINE_SOURCES})
 
+# Set include directories (relative includes are used)
 target_include_directories(blueparanoia_engine PUBLIC
-    ${CMAKE_CURRENT_SOURCE_DIR}/../include
+    ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
-target_link_libraries(blueparanoia_engine
-    SDL3::SDL3
-)
+# Link SDL3
+target_link_libraries(blueparanoia_engine SDL3)
